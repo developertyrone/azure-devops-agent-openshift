@@ -39,6 +39,8 @@ RUN chmod +x start.sh
 RUN chgrp -R 0 /azp \
   && chmod -R g=u /azp
 
+RUN chmod -R 777 /azp
+
 USER 1001
 
 ENTRYPOINT [ "./start.sh" ]
