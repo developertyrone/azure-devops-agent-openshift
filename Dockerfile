@@ -36,6 +36,9 @@ RUN if [ "$TARGETARCH" = "amd64" ]; then \
 COPY ./start.sh .
 RUN chmod +x start.sh
 
+RUN chgrp -R 0 /azp \
+  && chmod -R g=u /azp
+
 USER 1001
 
 ENTRYPOINT [ "./start.sh" ]
