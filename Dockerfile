@@ -17,6 +17,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libunwind8 \
     netcat \
     default-jdk \
+    skopeo \
+    buildah \
     libssl1.0 && rm -rf /var/lib/apt/lists/*
 
 RUN curl -LsS https://aka.ms/InstallAzureCLIDeb | bash \
@@ -39,8 +41,5 @@ RUN chmod +x start.sh
 RUN chgrp -R 0 /azp \
   && chmod -R g=u /azp
 
-RUN chmod -R 777 /azp
-
-USER 1001
 
 ENTRYPOINT [ "./start.sh" ]
