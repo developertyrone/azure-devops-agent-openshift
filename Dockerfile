@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libssl1.0 && rm -rf /var/lib/apt/lists/*
 
 ## Adding Support for Openshift image build
-RUN apt-get install -y libio-tee-perl curl gnupg2 --no-install-recommends
+RUN apt-get update && apt-get install -y libio-tee-perl gnupg2 --no-install-recommends
 RUN echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /" | tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list \
     && curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/Release.key | apt-key add -
 RUN apt-get update -qq && apt-get install -y --no-install-recommends \
